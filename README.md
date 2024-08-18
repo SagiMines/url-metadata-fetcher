@@ -44,6 +44,12 @@ npm install
 cd ..
 ```
 
+## Environment Variable
+
+In order to run this application, you will need to add an `.env` file to `client` folder with the following environment variable included:
+
+- `VITE_SERVER_DOMAIN` - The local server url which is by default: `http://localhost:3001`
+
 ## Running the Application
 
 1. Start the server:
