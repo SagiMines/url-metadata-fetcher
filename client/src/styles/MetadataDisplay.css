@@ -15,3 +15,9 @@
 .error {
   color: red;
 }
+
+@media only screen and (max-width: 400px) {
+  .metadata > img {
+    width: 200px;
+  }
+}
