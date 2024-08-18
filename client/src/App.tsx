@@ -18,7 +18,7 @@ const App: React.FC = () => {
   const fetchMetadata = async (urls: string[]) => {
     try {
       const response = await axios.post(
-        'http://localhost:3001/fetch-metadata',
+        `${import.meta.env.VITE_SERVER_DOMAIN}/fetch-metadata`,
         { urls }
       );
       setMetadataList(response.data);
