@@ -7,7 +7,7 @@ import './styles/App.css';
 
 const App: React.FC = () => {
   const [metadataList, setMetadataList] = useState<Metadata[]>([]);
-
+  const [error, setError] = useState<string>('');
   /**
    * @function fetchMetadata
    *
@@ -16,6 +16,7 @@ const App: React.FC = () => {
    * @param urls `string[]` - The array of the urls entered by the user.
    */
   const fetchMetadata = async (urls: string[]) => {
+    setError('');
     try {
       const response = await axios.post(
         `${import.meta.env.VITE_SERVER_DOMAIN}/fetch-metadata`,
@@ -23,6 +24,7 @@ const App: React.FC = () => {
       );
       setMetadataList(response.data);
     } catch (error: any) {
+      setError(error.message);
       setMetadataList([]);
     }
   };
@@ -31,7 +33,7 @@ const App: React.FC = () => {
     <div>
       <h1 className="main-title">URL Metadata Fetcher</h1>
       <UrlForm onSubmit={fetchMetadata} />
-      <MetadataDisplay metadataList={metadataList} />
+      <MetadataDisplay metadataList={metadataList} error={error} />
     </div>
   );
 };
