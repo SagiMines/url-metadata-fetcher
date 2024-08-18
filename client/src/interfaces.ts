@@ -7,6 +7,7 @@ export interface Metadata {
 
 export interface MetadataDisplayProps {
   metadataList: Metadata[];
+  error?: string;
 }
 
 export interface UrlFormProps {

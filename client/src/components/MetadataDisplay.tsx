@@ -2,7 +2,10 @@ import React from 'react';
 import { MetadataDisplayProps } from '../interfaces';
 import './../styles/MetadataDisplay.css';
 
-const MetadataDisplay: React.FC<MetadataDisplayProps> = ({ metadataList }) => {
+const MetadataDisplay: React.FC<MetadataDisplayProps> = ({
+  metadataList,
+  error,
+}) => {
   return (
     <div>
       {metadataList.map((metadata, index) => (
@@ -19,6 +22,13 @@ const MetadataDisplay: React.FC<MetadataDisplayProps> = ({ metadataList }) => {
           )}
         </div>
       ))}
+      {error && (
+        <div className="metadata">
+          <p className="error" style={{ color: 'red' }}>
+            {error}
+          </p>
+        </div>
+      )}
     </div>
   );
 };
