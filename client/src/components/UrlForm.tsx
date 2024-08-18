@@ -43,7 +43,7 @@ const UrlForm: React.FC<UrlFormProps> = ({ onSubmit }) => {
    */
   const removeUrl = (index: number) => {
     let tempUrls = [...urls];
-    tempUrls = tempUrls.filter((url, ind) => index !== ind);
+    tempUrls = tempUrls.filter((_url, ind) => index !== ind);
     setUrls([...tempUrls]);
   };
 
