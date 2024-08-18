@@ -51,7 +51,7 @@ const fetchUrlMetadata = async (url: string): Promise<MetadataResult> => {
     return { title, description, image };
   } catch (error) {
     console.error(`Error fetching metadata for ${url}:`, error);
-    return { error: 'Failed to fetch metadata' };
+    return { error: `Failed to fetch metadata for url: ${url}` };
   }
 };
 
